@@ -16,7 +16,7 @@ const toEnum = (v, allowed, fallback) => (allowed.includes(v) ? v : fallback);
 
 export const register = async (req, res, next) => {
   try {
-    const email   = toStr(req.body.email).trim().toLowerCase(); // ONLY email now
+    const email   = toStr(req.body.email).trim().toLowerCase(); 
     const password= toStr(req.body.password).trim();
     const name    = toStr(req.body.name).trim();
     const gender  = toEnum(

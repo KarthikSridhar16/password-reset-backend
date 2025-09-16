@@ -107,8 +107,8 @@ export const requestPasswordReset = async (email) => {
   if (!user) return;
 
   const rawToken = crypto.randomBytes(32).toString("hex");
-  user.passwordResetToken = rawToken;                 // raw token (your chosen approach)
-  user.passwordResetExpires = Date.now() + 60 * 60 * 1000; // 1 hour
+  user.passwordResetToken = rawToken;                 
+  user.passwordResetExpires = Date.now() + 60 * 60 * 1000;
   await user.save({ validateBeforeSave: false });
 
   await sendResetEmail(user.email, rawToken);
